@@ -1,20 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as eva from '@eva-design/eva';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { ApplicationProvider, Layout } from '@ui-kitten/components';
 
 export default function App() {
+
+  const HomeScreen = () => (
+    <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text style={{color: 'white'}}>HOME</Text>
+    </Layout>
+  )
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ApplicationProvider {...eva} theme={eva.dark}>
+      <HomeScreen></HomeScreen>
+    </ApplicationProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
